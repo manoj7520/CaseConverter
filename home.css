@@ -1,0 +1,66 @@
+
+#main{
+    display: flex;
+}
+#input1>input{
+  flex: 4;
+  margin-right: 50px;
+  vertical-align: top;
+    text-align: left;
+}
+input{
+    height: 300px;
+   align-items: flex-start;
+    width: 400px;
+    margin-left: 10px;
+    border: 1px solid rgba(172, 255, 47, 0.738);
+}
+#input2>input{
+ flex: 5;
+ margin-right: 15px;
+ vertical-align: top;
+    text-align: left;
+}
+#input{
+    flex: 2;
+    margin-right: 30px;
+    margin-top: 1.7cm;
+}
+#camel,#pascal,#snake,#kebab{
+    margin-bottom: 20px;
+    border: none;
+    border-color: aliceblue;
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+    color: aliceblue;
+    border-radius: 30px;
+}
+#camel{
+    background-color: rgba(225, 20, 20, 0.766);
+}
+#pascal{
+    background-color: rgba(191, 220, 26, 0.934);
+}
+#snake{
+    background-color: rgba(47, 79, 79, 0.843);
+}
+#kebab{
+    background-color: rgba(23, 72, 163, 0.817);
+}
+#camel:hover{
+    background-color: rgba(0, 0, 0, 0.332);
+}
+#pascal:hover{
+    background-color: rgba(0, 0, 0, 0.332);
+}
+#snake:hover{
+    background-color: rgba(0, 0, 0, 0.332);
+}
+#kebab:hover{
+    background-color: rgba(0, 0, 0, 0.332);
+}
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(7, 68, 47);
+}
