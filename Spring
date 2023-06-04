@@ -1,1 +1,51 @@
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api")
+public class CaseConverterController {
+
+    @PostMapping("/convert")
+    public String convertCase(@RequestBody String input, @RequestParam("type") String type) {
+        switch (type) {
+            case "kebab-case":
+                return convertToKebabCase(input);
+            case "snake-case":
+                return convertToSnakeCase(input);
+            case "camel-case":
+                return convertToCamelCase(input);
+            case "pascal-case":
+                return convertToPascalCase(input);
+            default:
+                return "Invalid conversion type";
+        }
+    }
+
+    private String convertToKebabCase(String input) {
+        return input.replaceAll("\\s+", "-").toLowerCase();
+    }
+
+    private String convertToSnakeCase(String input) {
+        return input.replaceAll("\\s+", "_").toLowerCase();
+    }
+
+    private String convertToCamelCase(String input) {
+        String[] words = input.trim().split("\\s+");
+        StringBuilder camelCase = new StringBuilder(words[0].toLowerCase());
+        for (int i = 1; i < words.length; i++) {
+            camelCase.append(Character.toUpperCase(words[i].charAt(0)))
+                    .append(words[i].substring(1).toLowerCase());
+        }
+        return camelCase.toString();
+    }
+
+    private String convertToPascalCase(String input) {
+        String[] words = input.trim().split("\\s+");
+        StringBuilder pascalCase = new StringBuilder();
+        for (String word : words) {
+            pascalCase.append(Character.toUpperCase(word.charAt(0)))
+                    .append(word.substring(1).toLowerCase());
+        }
+        return pascalCase.toString();
+    }
+}
 
