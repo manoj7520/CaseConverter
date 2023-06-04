@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './home.css'
 
-function HOME() {
-    const [input, setInput] = useState('');
+function App() {
+  const [input, setInput] = useState('');
   const [type, setType] = useState('kebab-case');
   const [output, setOutput] = useState('');
 
@@ -23,30 +23,25 @@ function HOME() {
   };
 
   return (
-    <div className="App">
+    <div className="main">
       <h1>Case Converter</h1>
-      <div className="input-container">
-        <textarea
-          rows="5"
-          className="input-textarea"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Enter your text"
-        ></textarea>
-        <select
-          className="conversion-type"
-          value={type}
-          onChange={(e) => setType(e.target.value)}
-        >
-          <option value="kebab-case">Kebab Case</option>
-          <option value="snake-case">Snake Case</option>
-          <option value="camel-case">Camel Case</option>
-          <option value="pascal-case">Pascal Case</option>
-        </select>
-      </div>
-      <button className="convert-button" onClick
+      <textarea
+      className='input'
+        rows="5"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      ></textarea>
+      <select value={type} onChange={(e) => setType(e.target.value)}>
+        <option value="kebab-case">Kebab Case</option>
+        <option value="snake_case">Snake Case</option>
+        <option value="camelCase">camelCase</option>
+        <option value="PascalCase">PascalCase</option>
+      </select>
+      <button onClick={convertCase}>Convert</button>
+      <h2>Output:</h2>
+      <div className='input'>{output}</div>
     </div>
-  )
+  );
 }
 
-export default HOME
+export default App;
